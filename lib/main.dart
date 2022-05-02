@@ -1,75 +1,61 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyFirstStatefulWidget('Hi'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: MyFirstStatelessWidget());
-  }
-}
-
 class MyFirstStatelessWidget extends StatelessWidget {
-  int _countBuildCall = 0;
+  final String _title;
+
+  const MyFirstStatelessWidget(this._title);
 
   @override
   Widget build(BuildContext context) {
-    print('build MyFirstStatelessWidget ${++_countBuildCall} ');
     return Container(
-      child: const Center(
-        child: Text('Hello!'),
+      child: Center(
+        child: Text(_title),
       ),
     );
   }
 }
 
 class MyFirstStatefulWidget extends StatefulWidget {
-  const MyFirstStatefulWidget({Key? key}) : super(key: key);
+  final String _title;
+
+  const MyFirstStatefulWidget(this._title);
 
   @override
-  _MyFirstStatefulWidgetState createState() => _MyFirstStatefulWidgetState();
+  _MyFirstStatefulWidgetState createState() =>
+      _MyFirstStatefulWidgetState(_title);
 }
 
 class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
-  int _countBuildCall = 0;
+  final String _title;
+
+  _MyFirstStatefulWidgetState(this._title);
 
   @override
   Widget build(BuildContext context) {
-    print('build MyFirstStatefulWidget ${++_countBuildCall} ');
+    printContextRuntime();
     return Container(
-      child: const Center(
-        child: Text('Hello!'),
+      child: Center(
+        child: Text(_title),
       ),
     );
+  }
+
+  void printContextRuntime() {
+    print(context.runtimeType);
   }
 }
