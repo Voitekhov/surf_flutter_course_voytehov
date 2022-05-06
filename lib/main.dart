@@ -1,61 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
 
 void main() {
-  runApp(const App());
+  runApp(const MyApp());
 }
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MyFirstStatefulWidget('Hi'),
-    );
-  }
-}
-
-class MyFirstStatelessWidget extends StatelessWidget {
-  final String _title;
-
-  const MyFirstStatelessWidget(this._title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(_title),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const SightListScreen(),
     );
-  }
-}
-
-class MyFirstStatefulWidget extends StatefulWidget {
-  final String _title;
-
-  const MyFirstStatefulWidget(this._title);
-
-  @override
-  _MyFirstStatefulWidgetState createState() =>
-      _MyFirstStatefulWidgetState(_title);
-}
-
-class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
-  final String _title;
-
-  _MyFirstStatefulWidgetState(this._title);
-
-  @override
-  Widget build(BuildContext context) {
-    printContextRuntime();
-    return Container(
-      child: Center(
-        child: Text(_title),
-      ),
-    );
-  }
-
-  void printContextRuntime() {
-    print(context.runtimeType);
   }
 }
