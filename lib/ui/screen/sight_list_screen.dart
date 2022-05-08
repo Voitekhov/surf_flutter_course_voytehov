@@ -14,11 +14,24 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
-        title: const Align(
+        title: Align(
           alignment: Alignment.centerLeft,
-          child: Text(
-            AppStrings.appBarTitle,
-            style: TextStyleTemplates.appBar,
+          child: RichText(
+            text: const TextSpan(
+              style: TextStyleTemplates.appBar,
+              children: [
+                TextSpan(
+                  text: AppStrings.S,
+                  style: TextStyleTemplates.appBarGreenText,
+                ),
+                TextSpan(text: AppStrings.pisok),
+                TextSpan(
+                  text: AppStrings.E,
+                  style: TextStyleTemplates.appBarYellowText,
+                ),
+                TextSpan(text: AppStrings.nteresnykh),
+              ],
+            ),
           ),
         ),
         elevation: 0,
