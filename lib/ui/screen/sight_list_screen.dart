@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/resources.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -11,18 +12,39 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // to not resized screen when keyboard appears
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('App bar'),
+        backgroundColor: AppColors.backgroundColor,
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: RichText(
+            text: const TextSpan(
+              style: TextStyleTemplates.appBar,
+              children: [
+                TextSpan(
+                  text: AppStrings.S,
+                  style: TextStyleTemplates.appBarGreenText,
+                ),
+                TextSpan(text: AppStrings.pisok),
+                TextSpan(
+                  text: AppStrings.E,
+                  style: TextStyleTemplates.appBarYellowText,
+                ),
+                TextSpan(text: AppStrings.nteresnykh),
+              ],
+            ),
+          ),
+        ),
+        elevation: 0,
       ),
-      body: Column(
-        // to demonstrate resize of screen
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text('Some text'),
-          TextField(),
-        ],
+      body: Container(
+        color: AppColors.backgroundColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('Some text'),
+            TextField(),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
