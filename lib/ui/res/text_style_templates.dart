@@ -20,4 +20,19 @@ class TextStyleTemplates {
     fontFamily: 'Robot',
     color: Colors.white,
   );
+
+  static const blackBoldText = TextStyle(
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: 'Roboto',
+  );
+
+  static const title = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+    fontSize: 25,
+    fontFamily: 'Roboto',
+  );
+
+  static const robotoFamily = TextStyle(fontFamily: 'Roboto');
 }
