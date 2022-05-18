@@ -9,4 +9,15 @@ class TextStyleTemplates {
     fontFamily: FontFamily.defaultFontFamily,
     fontSize: Fonts.defaultAppBarTitle,
   );
+
+  static const interestingPlaceTitle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Roboto',
+  );
+
+  static const placeTypeTitle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Robot',
+    color: Colors.white,
+  );
 }
