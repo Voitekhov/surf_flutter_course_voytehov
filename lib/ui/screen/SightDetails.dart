@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/app_colors.dart';
+import 'package:places/ui/res/strings.dart';
 import 'package:places/ui/res/text_style_templates.dart';
 
 class SightDetails extends StatelessWidget {
-  static const EdgeInsets _paddingLR = EdgeInsets.only(left: 15, right: 15);
-  static const EdgeInsets _paddingInButtonElement =
-      EdgeInsets.only(left: 1.5, right: 1.5);
+  static const EdgeInsets _paddingLR = EdgeInsets.symmetric(horizontal: 15);
 
-  SightDetails({Key? key}) : super(key: key);
+  static const EdgeInsets _paddingInButtonElement =
+  EdgeInsets.symmetric(horizontal: 1.5);
 
   final ButtonStyle _buttonStyle = ElevatedButton.styleFrom(
     primary: Colors.white,
     onPrimary: Colors.grey,
     elevation: 0,
   );
+
+  final Sight _sight;
+
+  // ignore: use_key_in_widget_constructors
+  SightDetails({required Sight sight}) : _sight = sight;
 
   @override
   Widget build(BuildContext context) {
@@ -33,31 +39,29 @@ class SightDetails extends StatelessWidget {
                 children: [
                   ListTile(
                     contentPadding: const EdgeInsets.all(0),
-                    title: const Text(
-                      'Пряности и радости',
+                    title: Text(
+                      _sight.name,
                       style: TextStyleTemplates.title,
                     ),
                     subtitle: Row(
-                      children: const [
+                      children: [
                         Text(
-                          'ресторан',
+                          _sight.type,
                           style: TextStyleTemplates.blackBoldText,
                         ),
-                        Spacer(
+                        const Spacer(
                           flex: 1,
                         ),
                         Text(
-                          'закрыто до 09:00',
+                          _sight.details,
                           style: TextStyleTemplates.robotoFamily,
                         ),
                         Spacer(flex: 14),
                       ],
                     ),
                   ),
-                  const Text(
-                    'Пряный вкус радостной жизни вместе с шеф-повором Изо Дзандзава,'
-                    ' благодаря которой у гостей ресторана есть возможность выбирать из двух направлений:'
-                    ' европейского и восточного',
+                  Text(
+                    _sight.details,
                     style: TextStyleTemplates.robotoFamily,
                   ),
                   Padding(
@@ -70,7 +74,7 @@ class SightDetails extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
-                        children: const [
+                        children: [
                           Padding(
                             padding: _paddingInButtonElement,
                             child: Icon(Icons.route_outlined),
@@ -78,7 +82,7 @@ class SightDetails extends StatelessWidget {
                           Padding(
                             padding: _paddingInButtonElement,
                             child: Text(
-                              'ПОСТРОИТЬ МАРШРУТ',
+                              AppStrings.buildRoute.toUpperCase(),
                               style: TextStyleTemplates.robotoFamily,
                             ),
                           ),
@@ -103,7 +107,7 @@ class SightDetails extends StatelessWidget {
                             Padding(
                               padding: _paddingInButtonElement,
                               child: Text(
-                                'Запланировать',
+                                AppStrings.addToFavorite,
                                 style: TextStyleTemplates.robotoFamily,
                               ),
                             ),
@@ -122,7 +126,7 @@ class SightDetails extends StatelessWidget {
                             Padding(
                               padding: _paddingInButtonElement,
                               child: Text(
-                                'В избранное',
+                                AppStrings.addToFavorite,
                                 style: TextStyleTemplates.robotoFamily,
                               ),
                             ),
