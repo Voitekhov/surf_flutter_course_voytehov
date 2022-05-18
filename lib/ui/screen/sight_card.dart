@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/strings.dart';
 import 'package:places/ui/res/text_style_templates.dart';
 
@@ -79,7 +80,7 @@ class SightCard extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 borderRadius: _radiusOfBLR,
-                color: Colors.grey[300],
+                color: AppColors.interestingPlaceCardBackgroundColor,
               ),
               child: ListTile(
                 title: Text(
