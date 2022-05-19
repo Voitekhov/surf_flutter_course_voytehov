@@ -29,7 +29,6 @@ class SightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-      height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -76,6 +75,7 @@ class SightCard extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(width: 20,height: 20,),
           Expanded(
             child: DecoratedBox(
               decoration: BoxDecoration(
